@@ -1,0 +1,34 @@
+{
+  "nav": {
+    "home": "Início",
+    "career": "Carreira",
+    "projects": "Projetos",
+    "certificates": "Certificados"
+  },
+  "hero": {
+    "greeting": "Olá, eu sou",
+    "role": "Java Backend Developer & Computer Engineering Student",
+    "bio": "Focado em construir aplicações escaláveis, de alta performance e seguras. Especialista no ecossistema Java (Spring Boot, Microservices) com ênfase em boas práticas arquiteturais, clean code e segurança integrada ao ciclo de desenvolvimento.",
+    "cta": "Ver projetos"
+  },
+  "career": {
+    "title": "Linha do Tempo",
+    "present": "Presente",
+    "stack": "Stack",
+    "work": "Experiência",
+    "education": "Formação"
+  },
+  "projects": {
+    "title": "Projetos GitHub",
+    "stars": "estrelas",
+    "view": "Ver repositório",
+    "loading": "Carregando projetos...",
+    "error": "Erro ao carregar projetos."
+  },
+  "certificates": {
+    "title": "Wall of Fame",
+    "validate": "Validar certificado",
+    "issued": "Emitido por",
+    "date": "Data"
+  }
+}
