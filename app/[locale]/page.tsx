@@ -316,7 +316,7 @@ export default function HomePage() {
           <span className="font-serif text-2xl text-cafe-brown">Portfolio</span>
           <p>© 2024 Joao Pedro. All rights reserved.</p>
           <div className="flex gap-8">
-            <a href="https://www.linkedin.com" target="_blank" rel="noreferrer" className="hover:text-cafe-brown">
+            <a href="https://www.linkedin.com/in/joaopedroaguiar99/" target="_blank" rel="noreferrer" className="hover:text-cafe-brown">
               LinkedIn
             </a>
             <a href="https://github.com/TI0J0A0" target="_blank" rel="noreferrer" className="hover:text-cafe-brown">
