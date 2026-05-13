@@ -14,7 +14,7 @@ export interface Certificate {
   issuer: string
   date: string
   imageUrl: string
-  validationUrl: string
+  validationUrl?: string
 }
 
 export interface Skills {

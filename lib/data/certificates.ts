@@ -7,7 +7,7 @@ export const certificates: Certificate[] = [
     issuer: 'Oracle',
     date: '2024',
     imageUrl: '/certificates/oracle-oci.png',
-    validationUrl: 'https://catalog-education.oracle.com/pls/certview/sharebadge',
+    validationUrl: 'https://catalog-education.oracle.com/',
   },
   {
     id: 'aws-cloud-discovery',
@@ -31,6 +31,6 @@ export const certificates: Certificate[] = [
     issuer: 'CTF / Cybersecurity',
     date: '2023',
     imageUrl: '/certificates/hack-slash.png',
-    validationUrl: '#',
+    validationUrl: undefined,
   },
 ]

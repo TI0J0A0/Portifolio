@@ -1,5 +1,6 @@
+import { Suspense } from 'react'
 import { useTranslations } from 'next-intl'
-import ProjectGrid from '@/components/github/ProjectGrid'
+import ProjectGrid, { ProjectGridSkeleton } from '@/components/github/ProjectGrid'
 
 export default function ProjectsPage() {
   const t = useTranslations('projects')
@@ -10,7 +11,9 @@ export default function ProjectsPage() {
         <h1 className="font-serif text-cafe-brown text-3xl md:text-5xl font-semibold mb-12 anim-fade-up">
           {t('title')}
         </h1>
-        <ProjectGrid />
+        <Suspense fallback={<ProjectGridSkeleton />}>
+          <ProjectGrid />
+        </Suspense>
       </div>
     </section>
   )

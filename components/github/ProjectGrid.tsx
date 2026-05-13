@@ -1,9 +1,5 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-import { useTranslations } from 'next-intl'
-import { motion } from 'framer-motion'
 import type { GitHubRepo } from '@/lib/types'
+import { getTranslations } from 'next-intl/server'
 
 const LANG_COLORS: Record<string, string> = {
   TypeScript: '#3178C6',
@@ -18,57 +14,69 @@ const LANG_COLORS: Record<string, string> = {
   Shell: '#89E051',
 }
 
-function SkeletonCard() {
+async function getRepos(): Promise<GitHubRepo[]> {
+  const username = process.env.GITHUB_USERNAME
+  if (!username) return []
+
+  const headers: HeadersInit = {
+    Accept: 'application/vnd.github.v3+json',
+  }
+  if (process.env.GITHUB_TOKEN) {
+    headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`
+  }
+
+  try {
+    const res = await fetch(
+      `https://api.github.com/users/${username}/repos?sort=updated&per_page=6&type=public`,
+      { headers }
+    )
+    if (!res.ok) return []
+    const data = await res.json()
+    return data.map((r: Record<string, unknown>) => ({
+      name: String(r.name),
+      description: (r.description as string) ?? null,
+      language: (r.language as string) ?? null,
+      html_url: String(r.html_url),
+      stargazers_count: (r.stargazers_count as number) ?? 0,
+      topics: (r.topics as string[]) ?? [],
+    }))
+  } catch {
+    return []
+  }
+}
+
+export function ProjectGridSkeleton() {
   return (
-    <div className="bg-white/60 border border-cafe-brown/10 rounded-[var(--radius-card)] p-5 animate-pulse">
-      <div className="h-4 bg-cafe-brown/10 rounded w-3/4 mb-3" />
-      <div className="h-3 bg-cafe-brown/10 rounded w-full mb-1" />
-      <div className="h-3 bg-cafe-brown/10 rounded w-2/3" />
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      {Array.from({ length: 6 }).map((_, i) => (
+        <div key={i} className="bg-white/60 border border-cafe-brown/10 rounded-[var(--radius-card)] p-5 animate-pulse">
+          <div className="h-4 bg-cafe-brown/10 rounded w-3/4 mb-3" />
+          <div className="h-3 bg-cafe-brown/10 rounded w-full mb-1" />
+          <div className="h-3 bg-cafe-brown/10 rounded w-2/3" />
+        </div>
+      ))}
     </div>
   )
 }
 
-export default function ProjectGrid() {
-  const t = useTranslations('projects')
-  const [repos, setRepos] = useState<GitHubRepo[]>([])
-  const [status, setStatus] = useState<'loading' | 'ok' | 'error'>('loading')
+export default async function ProjectGrid() {
+  const t = await getTranslations('projects')
+  const repos = await getRepos()
 
-  useEffect(() => {
-    fetch('/api/github')
-      .then((r) => r.json())
-      .then((data) => {
-        setRepos(data)
-        setStatus('ok')
-      })
-      .catch(() => setStatus('error'))
-  }, [])
-
-  if (status === 'loading') {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {Array.from({ length: 6 }).map((_, i) => (
-          <SkeletonCard key={i} />
-        ))}
-      </div>
-    )
-  }
-
-  if (status === 'error') {
+  if (repos.length === 0) {
     return <p className="text-cafe-muted text-sm">{t('error')}</p>
   }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {repos.map((repo, i) => (
-        <motion.a
+        <a
           key={repo.name}
           href={repo.html_url}
           target="_blank"
           rel="noopener noreferrer"
-          className="group block bg-white/60 border border-cafe-brown/10 rounded-[var(--radius-card)] p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35, delay: i * 0.06, ease: [0.23, 1, 0.32, 1] }}
+          className="group block bg-white/60 border border-cafe-brown/10 rounded-[var(--radius-card)] p-5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 anim-fade-up"
+          style={{ animationDelay: `${i * 60}ms` }}
         >
           <div className="flex items-start justify-between gap-2">
             <h3 className="font-serif text-cafe-brown font-semibold text-sm group-hover:text-cafe-terracota transition-colors">
@@ -92,7 +100,7 @@ export default function ProjectGrid() {
               <span className="text-xs text-cafe-muted">{repo.language}</span>
             </div>
           )}
-        </motion.a>
+        </a>
       ))}
     </div>
   )

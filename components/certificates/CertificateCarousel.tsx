@@ -54,14 +54,16 @@ export default function CertificateCarousel({ items }: Props) {
                   {selected.date}
                 </p>
               </div>
-              <a
-                href={selected.validationUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-cafe-brown text-cafe-cream text-sm rounded-[var(--radius-card)] hover:bg-cafe-brown-light transition-colors"
-              >
-                {t('validate')} ↗
-              </a>
+              {selected.validationUrl && (
+                <a
+                  href={selected.validationUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-cafe-brown text-cafe-cream text-sm rounded-[var(--radius-card)] hover:bg-cafe-brown-light transition-colors"
+                >
+                  {t('validate')} ↗
+                </a>
+              )}
             </div>
           </div>
         )}
