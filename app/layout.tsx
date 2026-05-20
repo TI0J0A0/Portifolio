@@ -15,8 +15,18 @@ const lora = Lora({
 })
 
 export const metadata: Metadata = {
-  title: 'Portfolio',
-  description: 'Portfólio profissional Full-Stack Developer',
+  title: 'Joao Aguiar | Cybersecurity Student & Secure Backend Developer',
+  description: 'Computer Engineering student focused on cybersecurity, SOC analysis, Blue Team fundamentals, secure backend development, and cloud security basics.',
+  keywords: [
+    'Cybersecurity Student',
+    'Junior SOC Analyst',
+    'Blue Team',
+    'Secure Backend Development',
+    'Java Spring Boot Security',
+    'SOC Analyst Portfolio',
+    'Cybersecurity Portfolio',
+    'Florida Cybersecurity Student',
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

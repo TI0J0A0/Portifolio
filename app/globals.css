@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Old Café palette */
-  --color-cafe-cream: #F5F5DC;
-  --color-cafe-cream-dark: #EAE8C8;
-  --color-cafe-brown: #5C3D2E;
-  --color-cafe-brown-light: #7A5548;
-  --color-cafe-terracota: #C97B63;
-  --color-cafe-moss: #6B7C5C;
-  --color-cafe-dark: #2C1A0E;
-  --color-cafe-muted: #9E8B7D;
+  /* Cybersecurity palette */
+  --color-cafe-cream: #07111F;
+  --color-cafe-cream-dark: #0D1B2A;
+  --color-cafe-brown: #67E8F9;
+  --color-cafe-brown-light: #22D3EE;
+  --color-cafe-terracota: #4ADE80;
+  --color-cafe-moss: #60A5FA;
+  --color-cafe-dark: #E5EEFB;
+  --color-cafe-muted: #94A3B8;
 
   /* Typography */
   --font-serif: var(--font-lora), Georgia, serif;
@@ -20,8 +20,8 @@
 }
 
 :root {
-  --background: #F5F5DC;
-  --foreground: #2C1A0E;
+  --background: #07111F;
+  --foreground: #E5EEFB;
 }
 
 body {
@@ -31,11 +31,10 @@ body {
 }
 
 ::selection {
-  background-color: #C97B63;
-  color: #F5F5DC;
+  background-color: #67E8F9;
+  color: #07111F;
 }
 
-/* ── Animations ─────────────────────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -58,12 +57,11 @@ body {
 .anim-fade-right { animation: fadeRight 0.5s cubic-bezier(.23,1,.32,1) both; }
 .anim-fade-in    { animation: fadeIn    0.4s ease both; }
 
-/* Subtle noise texture overlay */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 9999;
 }

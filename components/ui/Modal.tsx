@@ -29,12 +29,9 @@ export default function Modal({ open, onClose, children }: ModalProps) {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
         >
-          <div
-            className="absolute inset-0 bg-cafe-dark/60 backdrop-blur-sm"
-            onClick={onClose}
-          />
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose} />
           <motion.div
-            className="relative z-10 w-full max-w-lg bg-cafe-cream rounded-[var(--radius-card)] shadow-2xl overflow-hidden"
+            className="relative z-10 w-full max-w-lg overflow-hidden rounded-xl border border-cafe-brown/15 bg-cafe-cream shadow-2xl"
             initial={{ scale: 0.92, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.92, opacity: 0 }}
@@ -42,10 +39,10 @@ export default function Modal({ open, onClose, children }: ModalProps) {
           >
             <button
               onClick={onClose}
-              className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full text-cafe-muted hover:text-cafe-brown hover:bg-cafe-cream-dark transition-colors"
-              aria-label="Fechar"
+              className="absolute right-3 top-3 z-10 flex h-7 w-7 items-center justify-center rounded-full text-cafe-muted transition-colors hover:bg-cafe-cream-dark hover:text-cafe-brown"
+              aria-label="Close"
             >
-              ✕
+              x
             </button>
             {children}
           </motion.div>

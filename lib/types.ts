@@ -15,6 +15,8 @@ export interface Certificate {
   date: string
   imageUrl: string
   validationUrl?: string
+  status?: string
+  skills?: string[]
 }
 
 export interface Skills {

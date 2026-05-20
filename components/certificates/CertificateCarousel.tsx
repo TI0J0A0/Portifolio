@@ -17,7 +17,7 @@ export default function CertificateCarousel({ items }: Props) {
 
   return (
     <>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
         {items.map((cert) => (
           <CertificateCard key={cert.id} cert={cert} onClick={() => setSelected(cert)} />
         ))}
@@ -26,7 +26,7 @@ export default function CertificateCarousel({ items }: Props) {
       <Modal open={!!selected} onClose={() => setSelected(null)}>
         {selected && (
           <div>
-            <div className="relative w-full aspect-[4/3] bg-cafe-cream-dark">
+            <div className="relative aspect-[4/3] w-full bg-cafe-cream-dark">
               <Image
                 src={selected.imageUrl}
                 alt={selected.title}
@@ -36,32 +36,41 @@ export default function CertificateCarousel({ items }: Props) {
                   (e.currentTarget as HTMLImageElement).style.display = 'none'
                 }}
               />
-              <div className="absolute inset-0 flex items-center justify-center text-7xl select-none pointer-events-none">
-                🏅
+              <div className="pointer-events-none absolute inset-0 flex select-none items-center justify-center text-sm font-semibold uppercase tracking-[0.18em] text-cafe-muted">
+                Certificate
               </div>
             </div>
             <div className="p-6">
-              <h2 className="font-serif text-cafe-brown text-xl font-semibold">
+              <h2 className="font-serif text-xl font-semibold text-cafe-dark">
                 {selected.title}
               </h2>
-              <div className="mt-2 space-y-1 text-sm text-cafe-dark/70">
+              <div className="mt-3 space-y-1 text-sm text-cafe-muted">
                 <p>
-                  <span className="text-cafe-muted">{t('issued')}: </span>
+                  <span className="text-cafe-dark">{t('issued')}: </span>
                   {selected.issuer}
                 </p>
                 <p>
-                  <span className="text-cafe-muted">{t('date')}: </span>
+                  <span className="text-cafe-dark">{t('date')}: </span>
                   {selected.date}
                 </p>
               </div>
+              {selected.skills && (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {selected.skills.map((skill) => (
+                    <span key={skill} className="rounded-full bg-cafe-cream-dark px-3 py-1 text-xs text-cafe-brown">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              )}
               {selected.validationUrl && (
                 <a
                   href={selected.validationUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-cafe-brown text-cafe-cream text-sm rounded-[var(--radius-card)] hover:bg-cafe-brown-light transition-colors"
+                  className="mt-5 inline-flex items-center gap-2 rounded-lg bg-cafe-brown px-4 py-2 text-sm text-cafe-cream transition-colors hover:bg-cafe-brown-light"
                 >
-                  {t('validate')} ↗
+                  {t('validate')} -&gt;
                 </a>
               )}
             </div>

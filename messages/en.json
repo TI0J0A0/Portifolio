@@ -1,32 +1,36 @@
 {
   "nav": {
     "home": "Home",
-    "career": "Career",
+    "cybersecurity": "Cybersecurity",
+    "labs": "Labs",
     "projects": "Projects",
-    "certificates": "Certificates"
+    "experience": "Experience",
+    "certificates": "Certifications",
+    "resume": "Resume",
+    "contact": "Contact"
   },
   "hero": {
     "greeting": "Hi, I'm",
-    "role": "Java Backend Developer & Computer Engineering Student",
-    "bio": "Focused on building scalable, high-performance, and secure applications. Core expertise in the Java ecosystem (Spring Boot, Microservices) with emphasis on architectural best practices, clean code, and security integrated into every stage of the lifecycle.",
-    "cta": "View projects"
+    "role": "Cybersecurity Student | Secure Backend Development | Blue Team Focus",
+    "bio": "Computer Engineering student based in Florida, building a career in cybersecurity with a focus on SOC analysis, Blue Team operations, secure backend systems, networking, and cloud security fundamentals.",
+    "cta": "View Cybersecurity Labs"
   },
   "career": {
-    "title": "Timeline",
+    "title": "Experience",
     "present": "Present",
     "stack": "Stack",
-    "work": "Experience",
+    "work": "Professional Experience",
     "education": "Education"
   },
   "projects": {
-    "title": "GitHub Projects",
+    "title": "Security Projects",
     "stars": "stars",
     "view": "View repository",
     "loading": "Loading projects...",
-    "error": "Failed to load projects."
+    "error": "Showing local security projects while GitHub data is unavailable."
   },
   "certificates": {
-    "title": "Wall of Fame",
+    "title": "Certifications & Professional Development",
     "validate": "Validate certificate",
     "issued": "Issued by",
     "date": "Date"

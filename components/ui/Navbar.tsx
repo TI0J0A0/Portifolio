@@ -13,9 +13,13 @@ export default function Navbar() {
 
   const links = [
     { href: `/${locale}`, label: t('home') },
-    { href: `/${locale}/career`, label: t('career') },
+    { href: `/${locale}/cybersecurity`, label: t('cybersecurity') },
+    { href: `/${locale}/labs`, label: t('labs') },
     { href: `/${locale}/projects`, label: t('projects') },
+    { href: `/${locale}/experience`, label: t('experience') },
     { href: `/${locale}/certificates`, label: t('certificates') },
+    { href: `/${locale}/resume`, label: t('resume') },
+    { href: `/${locale}/contact`, label: t('contact') },
   ]
 
   return (
@@ -29,12 +33,12 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4 lg:gap-5">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-cafe-dark/70 hover:text-cafe-brown transition-colors"
+              className="text-xs lg:text-sm text-cafe-dark/70 hover:text-cafe-brown transition-colors"
             >
               {link.label}
             </Link>
