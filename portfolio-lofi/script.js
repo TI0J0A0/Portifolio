@@ -103,6 +103,9 @@ const translations = {
     nameLabel: "Name",
     messageLabel: "Message",
     sendMessage: "Send message",
+    sendingMessage: "Sending...",
+    formSuccess: "Message sent. Thanks for reaching out.",
+    formError: "Something went wrong. Please try again or email me directly.",
     footer: "&copy; 2026 Joao Aguiar. Built with HTML, CSS and JavaScript.",
   },
   pt: {
@@ -193,6 +196,9 @@ const translations = {
     nameLabel: "Nome",
     messageLabel: "Mensagem",
     sendMessage: "Enviar mensagem",
+    sendingMessage: "Enviando...",
+    formSuccess: "Mensagem enviada. Obrigado pelo contato.",
+    formError: "Algo deu errado. Tente novamente ou envie um email diretamente.",
     footer: "&copy; 2026 Joao Aguiar. Feito com HTML, CSS e JavaScript.",
   },
 };
@@ -467,10 +473,41 @@ if ("IntersectionObserver" in window) {
   });
 }
 
-contactForm?.addEventListener("submit", (event) => {
+contactForm?.addEventListener("submit", async (event) => {
   event.preventDefault();
-  alert("Simulated message sent. Connect this form to a real service later.");
-  contactForm.reset();
+  const dictionary = translations[currentLanguage] || translations.en;
+  const statusElement = contactForm.querySelector(".form-status");
+  const submitButton = contactForm.querySelector('button[type="submit"]');
+  const formData = new FormData(contactForm);
+
+  statusElement.textContent = "";
+  statusElement.classList.remove("is-success", "is-error");
+  submitButton.disabled = true;
+  submitButton.textContent = dictionary.sendingMessage;
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Formspree submission failed");
+    }
+
+    statusElement.textContent = dictionary.formSuccess;
+    statusElement.classList.add("is-success");
+    contactForm.reset();
+  } catch (error) {
+    statusElement.textContent = dictionary.formError;
+    statusElement.classList.add("is-error");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = dictionary.sendMessage;
+  }
 });
 
 applyLanguage(currentLanguage);

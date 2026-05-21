@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Coffee cup">
+  <rect width="64" height="64" rx="14" fill="#0d0906"/>
+  <path d="M18 25h26v11c0 7-5 13-13 13s-13-6-13-13V25Z" fill="#f1d4a7"/>
+  <path d="M44 29h4c4 0 7 3 7 7s-3 7-7 7h-5v-6h5c1 0 2-1 2-2s-1-2-2-2h-4v-4Z" fill="#f1d4a7"/>
+  <path d="M14 50h36" stroke="#d8944a" stroke-width="5" stroke-linecap="round"/>
+  <path d="M24 13c-3 4 3 5 0 9M33 11c-3 4 3 5 0 9M41 14c-3 3 2 4 0 7" fill="none" stroke="#d8944a" stroke-width="3" stroke-linecap="round"/>
+</svg>

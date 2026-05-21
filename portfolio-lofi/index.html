@@ -8,6 +8,7 @@
       content="Personal portfolio for a student exploring web development, Java, Python, cybersecurity, Linux, networking, automation, and study notes."
     />
     <title>Joao Aguiar | Developer Student & Cybersecurity Explorer</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -387,13 +388,20 @@
             </div>
           </div>
 
-          <form class="contact-form glass-card" aria-label="Contact form">
+          <form
+            class="contact-form glass-card"
+            action="https://formspree.io/f/xnjrpyez"
+            method="POST"
+            aria-label="Contact form"
+          >
             <label for="name" data-i18n="nameLabel">Name</label>
             <input id="name" name="name" type="text" autocomplete="name" required />
             <label for="email">Email</label>
             <input id="email" name="email" type="email" autocomplete="email" required />
             <label for="message" data-i18n="messageLabel">Message</label>
             <textarea id="message" name="message" rows="5" required></textarea>
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="honeypot" />
+            <p class="form-status" role="status" aria-live="polite"></p>
             <button class="btn btn-primary" type="submit" data-i18n="sendMessage">Send message</button>
           </form>
         </div>
