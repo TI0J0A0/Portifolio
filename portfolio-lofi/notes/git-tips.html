@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Git study notes and practical commands by Joao Aguiar." />
+    <title>Git Notes | Aguiar.dev</title>
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body class="note-page">
+    <a class="skip-link" href="#main">Skip to main content</a>
+
+    <header class="site-header">
+      <nav class="navbar" aria-label="Primary navigation">
+        <a class="brand" href="../index.html#home" aria-label="Back to home">
+          <span class="brand-mark" aria-hidden="true">AG</span>
+          <span>
+            <strong>Aguiar.dev</strong>
+            <small>study notes</small>
+          </span>
+        </a>
+
+        <div class="nav-actions note-nav-actions">
+          <a class="resume-button" href="../index.html#notes">Back to Notes</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="note-layout">
+      <article class="note-article glass-card">
+        <header class="note-hero">
+          <p class="eyebrow">Study Shelf / Git</p>
+          <h1>Git Commands Guide</h1>
+          <p>
+            A practical note with essential Git commands, quick explanations, and examples I can reuse
+            while studying or helping someone else.
+          </p>
+        </header>
+
+        <section class="note-section">
+          <h2>Mini History of Git</h2>
+          <p>
+            In April 2005, Linus Torvalds created Git to manage the Linux kernel. Before Git, centralized
+            systems like CVS and Subversion were slower and more rigid. Git introduced performance,
+            lightweight branches, and a distributed workflow that changed collaborative development.
+          </p>
+        </section>
+
+        <section class="note-section">
+          <h2>Essential Commands</h2>
+
+          <div class="command-block">
+            <h3>1. Start a repository</h3>
+            <pre><code># In a new or existing directory
+git init</code></pre>
+            <p>This creates the <code>.git</code> folder and starts version control.</p>
+          </div>
+
+          <div class="command-block">
+            <h3>2. Clone a remote project</h3>
+            <pre><code>git clone https://github.com/user/project.git</code></pre>
+            <p>Downloads the full project to your machine.</p>
+          </div>
+
+          <div class="command-block">
+            <h3>3. Add files to staging</h3>
+            <pre><code># Add a specific file
+git add file.txt
+
+# Add all changes
+git add .</code></pre>
+            <p>Use before running <code>git commit</code>.</p>
+          </div>
+
+          <div class="command-block">
+            <h3>4. Create a commit</h3>
+            <pre><code>git commit -m "Implement login feature"</code></pre>
+            <p>Registers the staged changes in the repository history.</p>
+          </div>
+
+          <div class="command-block">
+            <h3>5. Check current status</h3>
+            <pre><code>git status</code></pre>
+            <p>Shows modified, untracked, and staged files.</p>
+          </div>
+
+          <div class="command-block">
+            <h3>6. View commit history</h3>
+            <pre><code>git log --oneline</code></pre>
+            <p>Displays a compact list of commits.</p>
+          </div>
+
+          <div class="command-block">
+            <h3>7. Work with branches</h3>
+            <pre><code># Create a branch
+git branch my-feature
+
+# Switch to the branch
+git switch my-feature</code></pre>
+            <p>Branches help isolate work before merging it back.</p>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>

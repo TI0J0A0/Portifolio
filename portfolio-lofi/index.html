@@ -5,21 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Personal portfolio for a student exploring web development, Java, Python, cybersecurity, Linux, networking, and automation."
+      content="Personal portfolio for a student exploring web development, Java, Python, cybersecurity, Linux, networking, automation, and study notes."
     />
     <title>Joao Aguiar | Developer Student & Cybersecurity Explorer</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
+    <a class="skip-link" href="#main" data-i18n="skipLink">Skip to main content</a>
 
     <header class="site-header">
       <nav class="navbar" aria-label="Primary navigation">
         <a class="brand" href="#home" aria-label="Back to home">
-          <span class="brand-mark">☕</span>
+          <span class="brand-mark coffee-mark" aria-hidden="true">
+            <span class="cup-body"></span>
+            <span class="cup-handle"></span>
+            <span class="cup-plate"></span>
+          </span>
           <span>
             <strong>Aguiar.dev</strong>
-            <small>portfolio</small>
           </span>
         </a>
 
@@ -36,351 +39,369 @@
         </button>
 
         <ul class="nav-menu" id="nav-menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#certificates">Certificates</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home" data-i18n="navHome">Home</a></li>
+          <li><a href="#skills" data-i18n="navSkills">Skills</a></li>
+          <li><a href="#notes" data-i18n="navNotes">Notes</a></li>
+          <li><a href="#certificates" data-i18n="navCertificates">Certificates</a></li>
+          <li><a href="#experience" data-i18n="navExperience">Experience</a></li>
+          <li><a href="#projects" data-i18n="navProjects">Projects</a></li>
+          <li><a href="#contact" data-i18n="navContact">Contact</a></li>
         </ul>
 
-        <a class="resume-button" href="../Resume.pdf">Download Resume</a>
+        <div class="nav-actions">
+          <div class="language-toggle" aria-label="Language selector">
+            <button type="button" class="language-option is-active" data-lang="en">EN</button>
+            <button type="button" class="language-option" data-lang="pt">PT</button>
+          </div>
+          <a class="resume-button" href="Resume.pdf" target="_blank" rel="noreferrer" data-i18n="resume">Download Resume</a>
+        </div>
       </nav>
     </header>
 
     <main id="main">
       <section class="hero" id="home" aria-labelledby="hero-title">
-        <div class="hero-overlay"></div>
         <div class="hero-inner">
           <div class="hero-content fade-in">
-            <p class="pill">☕ Developer. Learner. Problem Solver.</p>
-            <h1 id="hero-title">
-              Building software, learning security, and creating thoughtful
-              <span>digital experiences.</span>
+            <p class="pill" data-i18n="heroPill">Developer Student / Cybersecurity Explorer</p>
+            <h1 id="hero-title" data-i18n="heroTitle">
+              Building useful software with a cozy study-room mindset.
             </h1>
-            <p class="hero-description">
-              I am a developer student and cybersecurity explorer who enjoys building useful things,
-              automating repetitive work, studying systems, and continuously leveling up.
+            <p class="hero-description" data-i18n="heroDescription">
+              I am learning development and cybersecurity through practical projects, notes, labs,
+              automation, and daily study routines.
             </p>
 
             <div class="hero-actions" aria-label="Primary actions">
-              <a class="btn btn-primary" href="#projects">View my work</a>
-              <a class="btn btn-secondary" href="#skills">My skills</a>
+              <a class="btn btn-primary" href="#projects" data-i18n="viewWork">View my work</a>
+              <a class="btn btn-secondary" href="#notes" data-i18n="openNotes">Open study notes</a>
             </div>
 
             <p class="study-status">
               <span class="status-dot" aria-hidden="true"></span>
-              Currently studying: Java / Python / Web Security / Linux
+              <span data-i18n="studyStatus">Currently studying: Java / Python / Web Security / Linux</span>
             </p>
           </div>
 
-          <aside class="lofi-player glass-card fade-in" aria-label="Small visual lofi player">
-            <div class="player-heading">
-              <span class="brand-mark">☕</span>
-              <div>
-                <p>Cafe Dev</p>
-                <small>lofi station</small>
+          <aside class="retro-desk fade-in" aria-label="Retro study dashboard">
+            <div class="retro-window glass-card">
+              <div class="window-bar">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="address-bar">aguiar.dev/study</div>
+              </div>
+              <div class="window-body">
+                <div class="terminal-panel">
+                  <p class="terminal-label">SYSTEM NOTE</p>
+                  <p data-i18n="terminalText">Focus, build, document, repeat.</p>
+                  <button class="tiny-button" type="button" data-i18n="terminalButton">Let's build</button>
+                </div>
+                <div class="old-monitor" aria-hidden="true">
+                  <div class="monitor-screen">
+                    <span>:-)</span>
+                    <small>CAFE DEV</small>
+                  </div>
+                  <div class="monitor-base"></div>
+                </div>
               </div>
             </div>
-            <div class="player-status">
-              <span class="player-light" aria-hidden="true"></span>
-              <span>Now brewing</span>
-              <span>Study mode</span>
+
+            <div class="widget-grid" aria-label="Study widgets">
+              <div class="widget weather-widget glass-card">
+                <span class="digital-number" data-date-day>21</span>
+                <div>
+                  <strong data-date-weekday>THURSDAY</strong>
+                  <small data-date-full>May 21, 2026</small>
+                </div>
+              </div>
+              <div class="widget quote-widget glass-card">
+                <strong data-i18n="quoteTitle">If future me forgets</strong>
+                <p data-i18n="quoteText">write it down today.</p>
+              </div>
+              <div class="widget time-widget glass-card">
+                <span class="digital-clock" data-clock>08:08:35</span>
+                <strong>TIME</strong>
+              </div>
+              <div class="widget lofi-player glass-card" aria-label="Small visual lofi player">
+                <div class="player-status">
+                  <span class="player-light" aria-hidden="true"></span>
+                  <span data-i18n="nowBrewing">Now brewing</span>
+                </div>
+                <div class="lofi-copy">
+                  <strong data-i18n="playerTitle">Generated Lofi Loop</strong>
+                  <small data-i18n="playerSub">soft keys / vinyl noise / simple beat</small>
+                </div>
+                <div class="mini-cassette" aria-hidden="true">
+                  <span class="reel reel-left"></span>
+                  <span class="tape-line"></span>
+                  <span class="reel reel-right"></span>
+                </div>
+                <div class="player-controls">
+                  <button
+                    class="play-toggle"
+                    type="button"
+                    aria-label="Start lofi study mode"
+                    aria-pressed="false"
+                  >
+                    Play
+                  </button>
+                  <label class="volume-control">
+                    <span data-i18n="volumeLabel">Volume</span>
+                    <input class="volume-slider" type="range" min="0" max="100" value="28" />
+                  </label>
+                </div>
+              </div>
             </div>
-            <div class="track-art" aria-hidden="true">
-              <span>late<br />night<br />codes</span>
-            </div>
-            <div class="track-info">
-              <h2>Night Study Session</h2>
-              <p>Lofi focus / no autoplay</p>
-            </div>
-            <div class="mini-cassette" aria-hidden="true">
-              <span class="reel reel-left"></span>
-              <span class="tape-line"></span>
-              <span class="reel reel-right"></span>
-            </div>
-            <button
-              class="play-toggle"
-              type="button"
-              aria-label="Start lofi study mode"
-              aria-pressed="false"
-            >
-              Play
-            </button>
           </aside>
         </div>
       </section>
 
-      <section class="dashboard-strip section-shell" aria-label="Portfolio summary">
-        <a class="summary-card glass-card fade-in" href="#skills">
-          <span class="summary-icon">⌘</span>
-          <div>
-            <h2>Skills</h2>
-            <p>Languages, tools, cybersecurity fundamentals, and soft skills.</p>
-          </div>
-        </a>
-        <a class="summary-card glass-card fade-in" href="#certificates">
-          <span class="summary-icon">◎</span>
-          <div>
-            <h2>Certificates</h2>
-            <p>Cloud, security, and professional development.</p>
-          </div>
-        </a>
-        <a class="summary-card glass-card fade-in" href="#experience">
-          <span class="summary-icon">▣</span>
-          <div>
-            <h2>Experience</h2>
-            <p>Support, troubleshooting, communication, and systems work.</p>
-          </div>
-        </a>
-        <a class="summary-card glass-card fade-in" href="#projects">
-          <span class="summary-icon">▤</span>
-          <div>
-            <h2>Projects</h2>
-            <p>Automation, infrastructure, security practice, and learning.</p>
-          </div>
-        </a>
-      </section>
-
       <section class="section-shell" id="skills" aria-labelledby="skills-title">
         <div class="section-heading fade-in">
-          <p class="eyebrow">Skills</p>
-          <h2 id="skills-title">Always learning. Always building.</h2>
+          <p class="eyebrow" data-i18n="skillsEyebrow">Skills</p>
+          <h2 id="skills-title" data-i18n="skillsTitle">Always learning. Always building.</h2>
         </div>
 
         <div class="skills-grid skills-grid-priority">
           <article class="skill-card glass-card fade-in">
-            <h3>Development</h3>
+            <h3 data-i18n="development">Development</h3>
             <div class="tag-list" aria-label="Development skills">
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>JavaScript</span>
-              <span>Java</span>
-              <span>Python</span>
-              <span>REST APIs</span>
-              <span>Git/GitHub</span>
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Java</span>
+              <span>Python</span><span>REST APIs</span><span>Git/GitHub</span>
             </div>
           </article>
-
           <article class="skill-card glass-card fade-in">
-            <h3>Cybersecurity</h3>
+            <h3 data-i18n="cybersecurity">Cybersecurity</h3>
             <div class="tag-list" aria-label="Cybersecurity skills">
-              <span>Linux Basics</span>
-              <span>Networking</span>
-              <span>Web Security</span>
-              <span>Blue Team</span>
-              <span>Logs & Monitoring</span>
-              <span>OWASP Basics</span>
-              <span>Homelab</span>
+              <span>Linux Basics</span><span>Networking</span><span>Web Security</span>
+              <span>Blue Team</span><span>Logs & Monitoring</span><span>OWASP Basics</span><span>Homelab</span>
             </div>
           </article>
-
           <article class="skill-card glass-card fade-in">
-            <h3>Languages</h3>
+            <h3 data-i18n="languages">Languages</h3>
             <div class="tag-list" aria-label="Language skills">
-              <span>Portuguese</span>
-              <span>English</span>
-              <span>Spanish</span>
-              <span>Bilingual Support</span>
-              <span>Technical Translation</span>
+              <span>Portuguese</span><span>English</span><span>Spanish</span>
+              <span>Bilingual Support</span><span>Technical Translation</span>
             </div>
           </article>
-
           <article class="skill-card glass-card fade-in">
-            <h3>Soft Skills</h3>
+            <h3 data-i18n="softSkills">Soft Skills</h3>
             <div class="tag-list" aria-label="Soft skills">
-              <span>Problem Solving</span>
-              <span>Technical Communication</span>
-              <span>Customer Support</span>
-              <span>Documentation</span>
-              <span>Adaptability</span>
-              <span>Process Discipline</span>
+              <span>Problem Solving</span><span>Technical Communication</span><span>Customer Support</span>
+              <span>Documentation</span><span>Adaptability</span><span>Process Discipline</span>
             </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell" id="notes" aria-labelledby="notes-title">
+        <div class="section-heading fade-in">
+          <p class="eyebrow" data-i18n="notesEyebrow">Study Shelf</p>
+          <h2 id="notes-title" data-i18n="notesTitle">Notes I can reuse and share.</h2>
+          <p data-i18n="notesIntro">
+            A simple place for commands, checklists, study reminders, and small files I use when learning.
+          </p>
+        </div>
+
+        <div class="notes-grid">
+          <article class="note-card glass-card fade-in">
+            <span class="note-type">CHEATSHEET</span>
+            <h3 data-i18n="gitTipsTitle">Git commands I always forget</h3>
+            <p data-i18n="gitTipsText">Useful Git reminders for branches, commits, history, and quick recovery.</p>
+            <a class="text-link" href="notes/git-tips.html" data-i18n="openFile">Open file</a>
+          </article>
+          <article class="note-card glass-card fade-in">
+            <span class="note-type">LINUX</span>
+            <h3 data-i18n="linuxTitle">Linux basics checklist</h3>
+            <p data-i18n="linuxText">Permissions, navigation, processes, logs, and terminal commands for practice.</p>
+            <a class="text-link" href="notes/linux-basics.html" data-i18n="openFile2">Open file</a>
+          </article>
+          <article class="note-card glass-card fade-in">
+            <span class="note-type">SECURITY</span>
+            <h3 data-i18n="securityTitle">Web security reminders</h3>
+            <p data-i18n="securityText">Short notes for authentication, input validation, OWASP basics, and testing flow.</p>
+            <a class="text-link" href="#" data-i18n="comingSoon">Coming soon</a>
           </article>
         </div>
       </section>
 
       <section class="section-shell" id="certificates" aria-labelledby="certificates-title">
         <div class="section-heading fade-in">
-          <p class="eyebrow">Certificates</p>
-          <h2 id="certificates-title">Collecting knowledge. Earning trust.</h2>
+          <p class="eyebrow" data-i18n="certEyebrow">Certificates</p>
+          <h2 id="certificates-title" data-i18n="certTitle">Collecting knowledge. Earning trust.</h2>
         </div>
-
         <div class="cert-grid">
-          <article class="cert-card glass-card fade-in">
-            <span class="cert-status">In progress</span>
+          <a
+            class="cert-card glass-card fade-in"
+            href="https://www.coursera.org/professional-certificates/google-cybersecurity"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open Google Cybersecurity Professional Certificate"
+          >
+            <span class="cert-status" data-i18n="inProgress">In progress</span>
             <h3>Google Cybersecurity Professional Certificate</h3>
             <p>Google / Coursera</p>
-            <div class="tag-list">
-              <span>SOC Fundamentals</span>
-              <span>Linux</span>
-              <span>SIEM</span>
-              <span>Incident Response</span>
-            </div>
-          </article>
-
-          <article class="cert-card glass-card fade-in">
-            <span class="cert-status">Completed / 2024</span>
+          </a>
+          <a
+            class="cert-card glass-card fade-in"
+            href="https://catalog-education.oracle.com/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open Oracle Cloud Infrastructure certification validation"
+          >
+            <span class="cert-status" data-i18n="completed2024">Completed / 2024</span>
             <h3>Oracle Cloud Infrastructure 2024 Certified Foundations Associate</h3>
             <p>Oracle</p>
-            <div class="tag-list">
-              <span>Cloud Fundamentals</span>
-              <span>Identity</span>
-              <span>Networking</span>
-              <span>Compute</span>
-            </div>
-          </article>
-
-          <article class="cert-card glass-card fade-in">
-            <span class="cert-status">Completed / 2024</span>
+          </a>
+          <a
+            class="cert-card glass-card fade-in"
+            href="https://aws.amazon.com/training/awsacademy/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open AWS Academy training page"
+          >
+            <span class="cert-status" data-i18n="completed2024b">Completed / 2024</span>
             <h3>Cloud Computing / AWS Discovery Day</h3>
             <p>Amazon Web Services</p>
-            <div class="tag-list">
-              <span>Cloud Concepts</span>
-              <span>AWS Services</span>
-              <span>Shared Responsibility</span>
-            </div>
-          </article>
+          </a>
         </div>
       </section>
 
       <section class="section-shell" id="experience" aria-labelledby="experience-title">
         <div class="section-heading fade-in">
-          <p class="eyebrow">Experience</p>
-          <h2 id="experience-title">Building experience. Creating impact.</h2>
+          <p class="eyebrow" data-i18n="experienceEyebrow">Experience</p>
+          <h2 id="experience-title" data-i18n="experienceTitle">Building experience. Creating impact.</h2>
         </div>
-
         <div class="timeline">
           <article class="timeline-item glass-card fade-in">
-            <span class="timeline-date">Mar 2026 / Present</span>
+            <span class="timeline-date" data-i18n="datePresent">Mar 2026 / Present</span>
             <h3>Mobile Specialist Advisor / Connection Specialist</h3>
             <p class="timeline-company">Best Buy / Kissimmee, FL</p>
-            <p>
-              Help customers identify technical needs, understand device protection, account setup,
-              connectivity options, and device-related issues.
-            </p>
-            <div class="tag-list">
-              <span>Endpoint Devices</span>
-              <span>Account Setup</span>
-              <span>Connectivity</span>
-              <span>Technical Communication</span>
-            </div>
+            <p data-i18n="expOne">Help customers identify technical needs, understand device protection, account setup, connectivity options, and device-related issues.</p>
           </article>
-
           <article class="timeline-item glass-card fade-in">
             <span class="timeline-date">Jun 2025 / Mar 2026</span>
             <h3>Computing Sales Advisor</h3>
             <p class="timeline-company">Best Buy / Hunters Creek, FL</p>
-            <p>
-              Assisted customers with computers, software, protection plans, device setup, and troubleshooting
-              while explaining technical concepts to non-technical users.
-            </p>
-            <div class="tag-list">
-              <span>Troubleshooting</span>
-              <span>Device Setup</span>
-              <span>Software Guidance</span>
-              <span>Problem Solving</span>
-            </div>
+            <p data-i18n="expTwo">Assisted customers with computers, software, protection plans, device setup, and troubleshooting while explaining technical concepts to non-technical users.</p>
           </article>
-
           <article class="timeline-item glass-card fade-in">
             <span class="timeline-date">Jan 2021 / Aug 2023</span>
             <h3>Information Technology Support Specialist</h3>
             <p class="timeline-company">IT Support / Remote</p>
-            <p>
-              Delivered end-user support for hardware, software, and network issues. Supported basic
-              cybersecurity measures and created technical documentation for users.
-            </p>
-            <div class="tag-list">
-              <span>Hardware</span>
-              <span>Software</span>
-              <span>Networking</span>
-              <span>Cybersecurity</span>
-              <span>Documentation</span>
-            </div>
+            <p data-i18n="expThree">Delivered end-user support for hardware, software, and network issues. Supported basic cybersecurity measures and created technical documentation for users.</p>
           </article>
         </div>
       </section>
 
       <section class="section-shell" id="projects" aria-labelledby="projects-title">
         <div class="section-heading fade-in">
-          <p class="eyebrow">Projects</p>
-          <h2 id="projects-title">Ideas to code. Code to impact.</h2>
+          <p class="eyebrow" data-i18n="projectsEyebrow">Projects</p>
+          <h2 id="projects-title" data-i18n="projectsTitle">Ideas to code. Code to impact.</h2>
         </div>
-
         <div class="projects-grid">
-          <article class="project-card glass-card fade-in">
-            <div class="project-meta">
-              <span>Python Automation</span>
-              <span>In development</span>
-            </div>
-            <h3>Python Web Scraper for Discord</h3>
-            <p>
-              Automation project focused on collecting web data, organizing settings in YAML files, and
-              sending notifications to Discord channels with webhooks.
-            </p>
-            <div class="tag-list">
-              <span>Python</span>
-              <span>YAML</span>
-              <span>Webhooks</span>
-              <span>Automation</span>
-            </div>
-          </article>
+          <a
+            class="project-card glass-card fade-in"
+            href="https://github.com/TI0J0A0/Watchout"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-meta"><span>JavaScript</span><span data-i18n="featuredRepo">Featured repo</span></div>
+            <h3>Watchout</h3>
+            <p data-i18n="watchoutText">A JavaScript project focused on building practical browser-based functionality and improving frontend problem solving.</p>
+            <span class="text-link" data-i18n="viewOnGithub">View on GitHub</span>
+          </a>
 
-          <article class="project-card glass-card fade-in">
-            <div class="project-meta">
-              <span>Infrastructure</span>
-              <span>Personal lab</span>
-            </div>
-            <h3>Homelab & Self-Hosting</h3>
-            <p>
-              Study environment for practicing Linux, local services, networking, containers, self-hosting,
-              and operational security concepts in a controlled setup.
-            </p>
-            <div class="tag-list">
-              <span>Linux</span>
-              <span>Networking</span>
-              <span>Self-Hosting</span>
-              <span>Security</span>
-            </div>
-          </article>
+          <a
+            class="project-card glass-card fade-in"
+            href="https://github.com/TI0J0A0/Tech-Journal-Discord-Bot"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-meta"><span>Java</span><span>Discord Bot</span></div>
+            <h3>Tech Journal Discord Bot</h3>
+            <p data-i18n="discordBotText">A Java bot project for organizing technical notes and study entries through Discord-based workflows.</p>
+            <span class="text-link" data-i18n="viewOnGithub2">View on GitHub</span>
+          </a>
+
+          <a
+            class="project-card glass-card fade-in"
+            href="https://github.com/TI0J0A0/Convertify"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-meta"><span>JavaScript</span><span>Web App</span></div>
+            <h3>Convertify</h3>
+            <p data-i18n="convertifyText">A responsive conversion app for values across categories like temperature, time, currency, and data.</p>
+            <span class="text-link" data-i18n="viewOnGithub3">View on GitHub</span>
+          </a>
+
+          <a
+            class="project-card glass-card fade-in"
+            href="https://github.com/TI0J0A0/Flashcards"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-meta"><span>Java</span><span>Spring Boot</span></div>
+            <h3>Flashcards</h3>
+            <p data-i18n="flashcardsText">A spaced repetition learning system built with Java and Spring Boot to help retain vocabulary and knowledge.</p>
+            <span class="text-link" data-i18n="viewOnGithub4">View on GitHub</span>
+          </a>
+
+          <a
+            class="project-card glass-card fade-in"
+            href="https://github.com/TI0J0A0/Portifolio"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-meta"><span>TypeScript</span><span>Portfolio</span></div>
+            <h3>Portifolio</h3>
+            <p data-i18n="portfolioText">My personal portfolio repository, where I iterate on design, frontend structure, localization, and presentation.</p>
+            <span class="text-link" data-i18n="viewOnGithub5">View on GitHub</span>
+          </a>
+
+          <a
+            class="project-card glass-card fade-in"
+            href="https://github.com/TI0J0A0/stock-management"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <div class="project-meta"><span>Java</span><span>Console App</span></div>
+            <h3>Stock Management</h3>
+            <p data-i18n="stockText">A console-based stock management system for practicing Java syntax, arrays, loops, and control flow.</p>
+            <span class="text-link" data-i18n="viewOnGithub6">View on GitHub</span>
+          </a>
         </div>
       </section>
 
       <section class="section-shell contact-section" id="contact" aria-labelledby="contact-title">
         <div class="contact-card glass-card fade-in">
           <div>
-            <p class="eyebrow">Contact</p>
-            <h2 id="contact-title">Good coffee. Good music. Good focus.</h2>
-            <p>
-              I am open to opportunities, collaborations, and projects involving development, automation,
-              security studies, technical support, and practical learning.
-            </p>
+            <p class="eyebrow" data-i18n="contactEyebrow">Contact</p>
+            <h2 id="contact-title" data-i18n="contactTitle">Good coffee. Good music. Good focus.</h2>
+            <p data-i18n="contactText">I am open to opportunities, collaborations, and projects involving development, automation, security studies, technical support, and practical learning.</p>
             <div class="social-links" aria-label="Social links">
-              <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://github.com/TI0J0A0" target="_blank" rel="noreferrer">GitHub</a>
               <a href="https://www.linkedin.com/in/joaopedroaguiar99/" target="_blank" rel="noreferrer">LinkedIn</a>
               <a href="mailto:seuemail@email.com">Email</a>
             </div>
           </div>
 
           <form class="contact-form glass-card" aria-label="Contact form">
-            <label for="name">Name</label>
+            <label for="name" data-i18n="nameLabel">Name</label>
             <input id="name" name="name" type="text" autocomplete="name" required />
-
             <label for="email">Email</label>
             <input id="email" name="email" type="email" autocomplete="email" required />
-
-            <label for="message">Message</label>
+            <label for="message" data-i18n="messageLabel">Message</label>
             <textarea id="message" name="message" rows="5" required></textarea>
-
-            <button class="btn btn-primary" type="submit">Send message</button>
+            <button class="btn btn-primary" type="submit" data-i18n="sendMessage">Send message</button>
           </form>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>© 2026 Joao Aguiar. Built with HTML, CSS and JavaScript.</p>
+      <p data-i18n="footer">&copy; 2026 Joao Aguiar. Built with HTML, CSS and JavaScript.</p>
     </footer>
 
     <script src="script.js"></script>
